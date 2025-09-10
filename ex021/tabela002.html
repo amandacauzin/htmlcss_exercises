@@ -11,15 +11,34 @@
         table{
             width: 500px;
             border-collapse: collapse;
+            position: relative;
+        }
+        caption{
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: lightgray;
         }
         td, th{
             border: 1px solid black;
             padding: 10px;
         }
-        thead{
-            background-color: gray;
+
+        thead, tfoot{
+            background-color: 383838;
             color: white;
         }
+
+        thead > tr > th{
+            position: sticky;
+            top: -1px;
+            background-color: #383838;
+        }
+
+        tbody > tr:nth-child(even) {
+            background-color: lightgray;
+        }
+
         td.num{
             text-align: right;
         }
@@ -28,19 +47,36 @@
 <body>
     <h1>Uso de tabelas grandes.</h1>
     <!--
+    no style do corpo: ZEBRADO
+    tbody > tr:nth-child(2n) 
+    no tr dentro do tbody, ':nth-child(2n)'(ou :nth-child(odd) -impares ou (even) pares), pinta a linha, de dois em dois, exemplo: linha um branca, linha dois cinza, linha 3 branca, linha quatro cinza
+
+
+
+
     Anatomia para tabelas grandes:
     TABLE
+            CAPTION(legenda da tabela)
            THEAD - cabeça
                 TR, TD, TH
             TBODY - corpo
                 TR, TD, TH
             TFOOT - final
-                TR, TD, TH-->
+                TR, TD, TH
+                
+    TH= cabeçalho(nome do dado)
+    TD= dados
+    TR= divisão
+
+    scope = 'col' - cabeçalho da coluna(titulo da coluna)
+    scope = 'row' - titulo da linha
+    -->
     <table>
+        <caption>População das Unidades Federativas</caption>
         <thead>
             <tr>
-                <th>Estado</th>
-                <th>População</th>
+                <th scope="col">Estado</th>
+                <th scope="col" style="width: 50px;">População</th>
             </tr>
         </thead>
 
@@ -98,8 +134,8 @@
 
         <tfoot>
             <tr>
-                <th>Total de habitantes</th>
-                <td class="num"> <strong>210.147.125</strong> </td>
+                <th scope="row">Total de habitantes</th>
+                <td class="num"><strong>210.147.125</strong> </td>
             </tr>
 
         </tfoot>
