@@ -1,2 +1,7 @@
 @charset "UTF-8"
 /*Aparelho deitado: modo landscape*/
+
+body{
+    background-image: url(/ex024/imagens/cev-landscape.jpg);
+    background-position: left bottom;
+}
